@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E0685162B71206E00CEAD88 /* Meal_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685152B71206E00CEAD88 /* Meal_AppApp.swift */; };
-		0E0685182B71206E00CEAD88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685172B71206E00CEAD88 /* ContentView.swift */; };
-		0E06851A2B71206F00CEAD88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E0685192B71206F00CEAD88 /* Assets.xcassets */; };
 		0E06851D2B71206F00CEAD88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E06851C2B71206F00CEAD88 /* Preview Assets.xcassets */; };
 		0E0685272B71206F00CEAD88 /* Meal_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685262B71206F00CEAD88 /* Meal_AppTests.swift */; };
-		0E0685312B71206F00CEAD88 /* Meal_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685302B71206F00CEAD88 /* Meal_AppUITests.swift */; };
-		0E0685332B71206F00CEAD88 /* Meal_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685322B71206F00CEAD88 /* Meal_AppUITestsLaunchTests.swift */; };
+		0E0685582B7129AA00CEAD88 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685512B7129AA00CEAD88 /* URLSessionHTTPClient.swift */; };
+		0E0685592B7129AA00CEAD88 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685522B7129AA00CEAD88 /* HTTPClient.swift */; };
+		0E06855A2B7129AA00CEAD88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E0685542B7129AA00CEAD88 /* Assets.xcassets */; };
+		0E06855B2B7129AA00CEAD88 /* Meal_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685562B7129AA00CEAD88 /* Meal_AppApp.swift */; };
+		0E06855C2B7129AA00CEAD88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685572B7129AA00CEAD88 /* ContentView.swift */; };
+		0E0685622B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06855E2B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift */; };
+		0E0685632B7129D300CEAD88 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685602B7129D300CEAD88 /* URLProtocolStub.swift */; };
+		0E0685642B7129D300CEAD88 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +38,19 @@
 
 /* Begin PBXFileReference section */
 		0E0685122B71206E00CEAD88 /* Meal-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E0685152B71206E00CEAD88 /* Meal_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_AppApp.swift; sourceTree = "<group>"; };
-		0E0685172B71206E00CEAD88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0E0685192B71206F00CEAD88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E06851C2B71206F00CEAD88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E0685222B71206F00CEAD88 /* Meal-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meal-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0685262B71206F00CEAD88 /* Meal_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_AppTests.swift; sourceTree = "<group>"; };
 		0E06852C2B71206F00CEAD88 /* Meal-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meal-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E0685302B71206F00CEAD88 /* Meal_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_AppUITests.swift; sourceTree = "<group>"; };
-		0E0685322B71206F00CEAD88 /* Meal_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E0685512B7129AA00CEAD88 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		0E0685522B7129AA00CEAD88 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		0E0685542B7129AA00CEAD88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E0685562B7129AA00CEAD88 /* Meal_AppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal_AppApp.swift; sourceTree = "<group>"; };
+		0E0685572B7129AA00CEAD88 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E06855E2B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		0E0685602B7129D300CEAD88 /* URLProtocolStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		0E0685652B712A8C00CEAD88 /* Meal-App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Meal-App.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +81,9 @@
 		0E0685092B71206E00CEAD88 = {
 			isa = PBXGroup;
 			children = (
+				0E0685652B712A8C00CEAD88 /* Meal-App.xctestplan */,
 				0E0685142B71206E00CEAD88 /* Meal-App */,
 				0E0685252B71206F00CEAD88 /* Meal-AppTests */,
-				0E06852F2B71206F00CEAD88 /* Meal-AppUITests */,
 				0E0685132B71206E00CEAD88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,9 +101,9 @@
 		0E0685142B71206E00CEAD88 /* Meal-App */ = {
 			isa = PBXGroup;
 			children = (
-				0E0685152B71206E00CEAD88 /* Meal_AppApp.swift */,
-				0E0685172B71206E00CEAD88 /* ContentView.swift */,
-				0E0685192B71206F00CEAD88 /* Assets.xcassets */,
+				0E0685552B7129AA00CEAD88 /* App */,
+				0E0685502B7129AA00CEAD88 /* Network */,
+				0E0685532B7129AA00CEAD88 /* Resources */,
 				0E06851B2B71206F00CEAD88 /* Preview Content */,
 			);
 			path = "Meal-App";
@@ -113,18 +120,54 @@
 		0E0685252B71206F00CEAD88 /* Meal-AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				0E06855D2B7129D300CEAD88 /* Helpers */,
+				0E06855F2B7129D300CEAD88 /* Network */,
 				0E0685262B71206F00CEAD88 /* Meal_AppTests.swift */,
 			);
 			path = "Meal-AppTests";
 			sourceTree = "<group>";
 		};
-		0E06852F2B71206F00CEAD88 /* Meal-AppUITests */ = {
+		0E0685502B7129AA00CEAD88 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0E0685302B71206F00CEAD88 /* Meal_AppUITests.swift */,
-				0E0685322B71206F00CEAD88 /* Meal_AppUITestsLaunchTests.swift */,
+				0E0685512B7129AA00CEAD88 /* URLSessionHTTPClient.swift */,
+				0E0685522B7129AA00CEAD88 /* HTTPClient.swift */,
 			);
-			path = "Meal-AppUITests";
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0E0685532B7129AA00CEAD88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E0685542B7129AA00CEAD88 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E0685552B7129AA00CEAD88 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0E0685562B7129AA00CEAD88 /* Meal_AppApp.swift */,
+				0E0685572B7129AA00CEAD88 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0E06855D2B7129D300CEAD88 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0E06855E2B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0E06855F2B7129D300CEAD88 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0E0685602B7129D300CEAD88 /* URLProtocolStub.swift */,
+				0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E06851D2B71206F00CEAD88 /* Preview Assets.xcassets in Resources */,
-				0E06851A2B71206F00CEAD88 /* Assets.xcassets in Resources */,
+				0E06855A2B7129AA00CEAD88 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E0685182B71206E00CEAD88 /* ContentView.swift in Sources */,
-				0E0685162B71206E00CEAD88 /* Meal_AppApp.swift in Sources */,
+				0E06855C2B7129AA00CEAD88 /* ContentView.swift in Sources */,
+				0E0685592B7129AA00CEAD88 /* HTTPClient.swift in Sources */,
+				0E06855B2B7129AA00CEAD88 /* Meal_AppApp.swift in Sources */,
+				0E0685582B7129AA00CEAD88 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E0685272B71206F00CEAD88 /* Meal_AppTests.swift in Sources */,
+				0E0685632B7129D300CEAD88 /* URLProtocolStub.swift in Sources */,
+				0E0685622B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				0E0685642B7129D300CEAD88 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E0685332B71206F00CEAD88 /* Meal_AppUITestsLaunchTests.swift in Sources */,
-				0E0685312B71206F00CEAD88 /* Meal_AppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
