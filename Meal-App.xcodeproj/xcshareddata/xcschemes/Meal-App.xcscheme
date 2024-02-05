@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Meal-App.xctestplan"
+            reference = "container:Meal-App/Meal-App.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
