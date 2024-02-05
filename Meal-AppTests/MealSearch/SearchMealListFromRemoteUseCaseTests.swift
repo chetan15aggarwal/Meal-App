@@ -90,6 +90,21 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_search_doesNotDeliverResultAfterSUTHasBeenDeallocated() {
+        let url = URL(string: "http://a-url.com")!
+        let client = HTTPClientSpy()
+        let searchString = "string"
+
+        var sut: RemoteSearchMealListLoader? = RemoteSearchMealListLoader(url: url, client: client)
+        
+        var capturedResults = [RemoteSearchMealListLoader.Result]()
+        sut?.search(searchString: searchString ){ capturedResults.append($0) }
+        sut = nil
+        
+        client.complete(withStatusCode: 200, data: makeItemJson([]))
+        XCTAssertTrue(capturedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "http://a-given-url.com")!,
                          file: StaticString = #filePath,
