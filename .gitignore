@@ -1,1 +1,7 @@
-*.xcuserdata/
+# User-specific Xcode settings
+*.xcuserdatad
+xcuserdata/
+
+# Xcode
+build/
+DerivedData/
