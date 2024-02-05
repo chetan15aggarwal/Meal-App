@@ -17,6 +17,9 @@
 		0E0685622B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06855E2B7129D300CEAD88 /* XCTestCase+MemoryLeakTracking.swift */; };
 		0E0685632B7129D300CEAD88 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685602B7129D300CEAD88 /* URLProtocolStub.swift */; };
 		0E0685642B7129D300CEAD88 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */; };
+		0E5D83102B713A27001CF73F /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D830F2B713A27001CF73F /* MealItem.swift */; };
+		0E5D83122B713CCF001CF73F /* SearchMealListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D83112B713CCF001CF73F /* SearchMealListLoader.swift */; };
+		0E5D83142B713DD7001CF73F /* MealItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D83132B713DD7001CF73F /* MealItemDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		0E0685602B7129D300CEAD88 /* URLProtocolStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		0E0685652B712A8C00CEAD88 /* Meal-App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Meal-App.xctestplan"; sourceTree = "<group>"; };
+		0E5D830F2B713A27001CF73F /* MealItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItem.swift; sourceTree = "<group>"; };
+		0E5D83112B713CCF001CF73F /* SearchMealListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMealListLoader.swift; sourceTree = "<group>"; };
+		0E5D83132B713DD7001CF73F /* MealItemDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItemDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +90,7 @@
 		0E0685142B71206E00CEAD88 /* Meal-App */ = {
 			isa = PBXGroup;
 			children = (
-				0E0685652B712A8C00CEAD88 /* Meal-App.xctestplan */,
+				0E5D830C2B713868001CF73F /* MealSearch */,
 				0E0685552B7129AA00CEAD88 /* App */,
 				0E0685502B7129AA00CEAD88 /* Network */,
 				0E0685532B7129AA00CEAD88 /* Resources */,
@@ -123,6 +129,7 @@
 		0E0685532B7129AA00CEAD88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E0685652B712A8C00CEAD88 /* Meal-App.xctestplan */,
 				0E0685542B7129AA00CEAD88 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -152,6 +159,32 @@
 				0E0685612B7129D300CEAD88 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0E5D830C2B713868001CF73F /* MealSearch */ = {
+			isa = PBXGroup;
+			children = (
+				0E5D830E2B71389E001CF73F /* Feature */,
+				0E5D830D2B713894001CF73F /* Api */,
+			);
+			path = MealSearch;
+			sourceTree = "<group>";
+		};
+		0E5D830D2B713894001CF73F /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				0E5D83132B713DD7001CF73F /* MealItemDto.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		0E5D830E2B71389E001CF73F /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				0E5D830F2B713A27001CF73F /* MealItem.swift */,
+				0E5D83112B713CCF001CF73F /* SearchMealListLoader.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5D83142B713DD7001CF73F /* MealItemDto.swift in Sources */,
 				0E06855C2B7129AA00CEAD88 /* ContentView.swift in Sources */,
 				0E0685592B7129AA00CEAD88 /* HTTPClient.swift in Sources */,
+				0E5D83122B713CCF001CF73F /* SearchMealListLoader.swift in Sources */,
+				0E5D83102B713A27001CF73F /* MealItem.swift in Sources */,
 				0E06855B2B7129AA00CEAD88 /* Meal_AppApp.swift in Sources */,
 				0E0685582B7129AA00CEAD88 /* URLSessionHTTPClient.swift in Sources */,
 			);

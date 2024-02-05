@@ -1,0 +1,16 @@
+//
+// Meal-App
+// Created by Chetan Aggarwal.
+
+
+import Foundation
+
+enum SearchMealListResult {
+    case success([MealItem])
+    case failure(Error)
+}
+
+// MARK: - SearchMealListLoader Protocol
+protocol SearchMealListLoader {
+    func search(completion: @escaping (SearchMealListResult) -> Void)
+}
