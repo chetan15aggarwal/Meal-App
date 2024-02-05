@@ -7,6 +7,7 @@ import Foundation
 
 struct MealItemDto: Decodable {
     var idMeal: Double
+    var strMeal: String
     var strCategory: String
     var strArea: String
     var strInstructions: String
@@ -63,4 +64,43 @@ struct MealItemDto: Decodable {
 
 struct Root: Decodable {
     let meals: [MealItemDto]
+}
+
+extension Array where Element == MealItemDto {
+    func toModels() -> [MealItem] {
+        return map {
+            MealItem(id: $0.idMeal,
+                     name: $0.strMeal,
+                     category: $0.strCategory,
+                     area: $0.strArea,
+                     instructions: $0.strInstructions,
+                     mealThumbUrl: URL(string: $0.strMealThumb) ?? nil,
+                     tags: $0.strTags.components(separatedBy: ","),
+                     youtubeUrl: URL(string: $0.strYoutube) ?? nil,
+                     sourceUrl: URL(string: $0.strSource) ?? nil,
+                     ingredients: [
+                        Ingredient(ingredientName: $0.strIngredient1, measurement: $0.strMeasure1),
+                        Ingredient(ingredientName: $0.strIngredient2, measurement: $0.strMeasure2),
+                        Ingredient(ingredientName: $0.strIngredient3, measurement: $0.strMeasure3),
+                        Ingredient(ingredientName: $0.strIngredient4, measurement: $0.strMeasure4),
+                        Ingredient(ingredientName: $0.strIngredient5, measurement: $0.strMeasure5),
+                        Ingredient(ingredientName: $0.strIngredient6, measurement: $0.strMeasure6),
+                        Ingredient(ingredientName: $0.strIngredient7, measurement: $0.strMeasure7),
+                        Ingredient(ingredientName: $0.strIngredient8, measurement: $0.strMeasure8),
+                        Ingredient(ingredientName: $0.strIngredient9, measurement: $0.strMeasure9),
+                        Ingredient(ingredientName: $0.strIngredient10, measurement: $0.strMeasure10),
+                        Ingredient(ingredientName: $0.strIngredient11, measurement: $0.strMeasure11),
+                        Ingredient(ingredientName: $0.strIngredient12, measurement: $0.strMeasure12),
+                        Ingredient(ingredientName: $0.strIngredient13, measurement: $0.strMeasure13),
+                        Ingredient(ingredientName: $0.strIngredient14, measurement: $0.strMeasure14),
+                        Ingredient(ingredientName: $0.strIngredient15, measurement: $0.strMeasure15),
+                        Ingredient(ingredientName: $0.strIngredient16, measurement: $0.strMeasure16),
+                        Ingredient(ingredientName: $0.strIngredient17, measurement: $0.strMeasure17),
+                        Ingredient(ingredientName: $0.strIngredient18, measurement: $0.strMeasure18),
+                        Ingredient(ingredientName: $0.strIngredient19, measurement: $0.strMeasure19),
+                        Ingredient(ingredientName: $0.strIngredient20, measurement: $0.strMeasure20)
+                     ]
+            )
+        }
+    }
 }
