@@ -13,18 +13,80 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
+    
+    func test_search_requestsDataFromURL() {
+        let url = URL(string: "http://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        let searchString = "string"
+        
+        sut.search(searchString: searchString, completion: { _ in })
+        
+        XCTAssertEqual(client.requestedURLs, [url])
+    }
+    
+    func test_searchTwice_requestsDataFromURLTwice () {
+        let url = URL(string: "http://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        let searchString = "string"
+        
+        sut.search(searchString: searchString) { _ in }
+        sut.search(searchString: searchString) { _ in }
+        
+        XCTAssertEqual(client.requestedURLs, [url, url])
+    }
+    
+    func test_search_deliversErrorOnClientError() {
+        let (sut, client) = makeSUT()
+        let searchString = "string"
+        
+        expect(searchString, sut: sut, toCompleteWith: failure(.connectivity) ) {
+            let completionError = NSError(domain: "Test", code: 0)
+            client.complete(with: completionError)
+        }
+    }
+    
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "http://a-given-url.com")!,
                          file: StaticString = #filePath,
-                         line: UInt = #line) -> (SearchMealListLoader, HTTPClientSpy) {
+                         line: UInt = #line) -> (RemoteSearchMealListLoader, HTTPClientSpy) {
         
         let client = HTTPClientSpy()
         let sut = RemoteSearchMealListLoader(url: url, client: client)
-    
+        
         trackMemoryLeak(sut, file: file, line: line)
         trackMemoryLeak(client, file: file, line: line)
         
         return (sut, client)
+    }
+    
+    private func expect(_ searchString: String, sut: RemoteSearchMealListLoader,
+                        toCompleteWith expectedResult: RemoteSearchMealListLoader.Result,
+                        file: StaticString = #filePath,
+                        line: UInt = #line,
+                        when action: () -> Void ) {
+        
+        let exp = expectation(description: "Wait for load comletion")
+        
+        sut.search(searchString: searchString) { receivedResults in
+            switch (receivedResults, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+            case let (.failure(receivedError as RemoteSearchMealListLoader.Error), .failure(expectedError as RemoteSearchMealListLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError)
+            default:
+                XCTFail("expected result \(expectedResult) got \(receivedResults) instead", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+        
+        action()
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    
+    private func failure(_ error: RemoteSearchMealListLoader.Error) -> RemoteSearchMealListLoader.Result {
+        return .failure(error)
     }
     
     // MARK: - HTTPClientSpy

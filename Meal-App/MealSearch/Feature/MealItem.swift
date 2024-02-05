@@ -6,7 +6,7 @@
 import Foundation
 
 typealias Ingredients = [String: String] // [Ingredients: Measurements]
-struct MealItem {
+struct MealItem: Equatable {
     var id: Double
     var category: String
     var area: String
