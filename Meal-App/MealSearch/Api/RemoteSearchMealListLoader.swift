@@ -38,7 +38,7 @@ final class RemoteSearchMealListLoader: SearchMealListLoader {
     private static func map(_ data: Data, _ response: HTTPURLResponse) -> Result {
         do {
             let items = try MealListItemMapper.map(data, response)
-            return .success([])
+            return .success(items.toModels())
         } catch {
             return .failure(error)
         }

@@ -5,15 +5,20 @@
 
 import Foundation
 
-typealias Ingredients = [String: String] // [Ingredients: Measurements]
+struct Ingredient: Equatable {
+    var ingredientName: String
+    var measurement: String
+}
+
 struct MealItem: Equatable {
     var id: Double
+    var name: String
     var category: String
     var area: String
     var instructions: String
-    var mealThumbUrl: URL
+    var mealThumbUrl: URL?
     var tags: [String]
-    var youtubeUrl: URL
-    var sourceUrl: URL
-    var ingredients: Ingredients
+    var youtubeUrl: URL?
+    var sourceUrl: URL?
+    var ingredients: [Ingredient]
 }
