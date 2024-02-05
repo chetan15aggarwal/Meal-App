@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "9E5E003B-41BE-4CC5-A6E4-DFF38D0B39B2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Meal-App.xcodeproj",
+      "identifier" : "0E0685112B71206E00CEAD88",
+      "name" : "Meal-App"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Meal-App.xcodeproj",
+        "identifier" : "0E0685212B71206F00CEAD88",
+        "name" : "Meal-AppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
