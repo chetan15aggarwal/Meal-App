@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct MealItemDto {
+struct MealItemDto: Decodable {
     var idMeal: Double
     var strCategory: String
     var strArea: String
@@ -59,4 +59,8 @@ struct MealItemDto {
     
     //ignored keys because of null response
     //strDrinkAlternate, strImageSource, strCreativeCommonsConfirmed, dateModified
+}
+
+struct Root: Decodable {
+    let meals: [MealItemDto]
 }

@@ -12,5 +12,5 @@ enum SearchMealListResult {
 
 // MARK: - SearchMealListLoader Protocol
 protocol SearchMealListLoader {
-    func search(completion: @escaping (SearchMealListResult) -> Void)
+    func search(searchString: String, completion: @escaping (SearchMealListResult) -> Void)
 }
