@@ -17,16 +17,16 @@ final class MealSearchViewModel:ObservableObject {
     }
     
     func searchMeal() {
-        Task {
-            searchItemListLoader.search(searchString: searchString) { [weak self] result in
-                guard let self else { return }
-                switch result {
-                case let .success(items):
-                    mealList = items
-                case let .failure(error):
-                    //trigger error logic
-                    searchError = error.localizedDescription as? any Error
+        searchItemListLoader.search(searchString: searchString) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case let .success(items):
+                DispatchQueue.main.async {
+                    self.mealList = items
                 }
+            case let .failure(error):
+                //trigger error logic
+                searchError = error.localizedDescription as? any Error
             }
         }
     }

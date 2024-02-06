@@ -76,9 +76,9 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
     func test_seach_diliverItemsOn200HTTPResponseWithJsonItems() {
         let (sut, client, searchString) = makeSUT()
         
-        let item1 = makeItem(id: 1111, name: "Kumpir", category: "Side", area: "Turkish", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient(ingredientName: "Potatoes", measurement: "2 large"), Ingredient(ingredientName: "Butter", measurement: "2 tbs")])
+        let item1 = makeItem(id: "1111", name: "Kumpir", category: "Side", area: "Turkish", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient("Potatoes", measurement: "2 large"), Ingredient("Butter", measurement: "2 tbs")].compactMap{$0})
         
-        let item2 = makeItem(id: 222, name: "Poutine", category: "Miscellaneous", area: "Canadian", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient(ingredientName: "Vegetable Oil", measurement: "2 large"), Ingredient(ingredientName: "Butter", measurement: "2 tbs")])
+        let item2 = makeItem(id: "222", name: "Poutine", category: "Miscellaneous", area: "Canadian", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient("Vegetable Oil", measurement: "2 large"), Ingredient("Butter", measurement: "2 tbs")].compactMap{$0})
         
         let items = ([item1.model, item2.model])
 
@@ -154,18 +154,15 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: itemJson, options: .prettyPrinted)
     }
     
-    private func makeItem(id: Double, name: String, category: String, area: String, instructions: String, mealThumbUrl: URL, tags: [String], youtubeUrl: URL, sourceUrl: URL, ingredients: [Ingredient]) -> (model: MealItem, json: [String: Any]) {
+    private func makeItem(id: String, name: String, category: String, area: String, instructions: String, mealThumbUrl: URL, tags: [String], youtubeUrl: URL, sourceUrl: URL, ingredients: [Ingredient]) -> (model: MealItem, json: [String: Any]) {
         
-        var allIngredients: [Ingredient] = []
-        for i in 0..<20 {
-            let local = Ingredient(
-                ingredientName: i < ingredients.count ? ingredients[i].ingredientName:"",
-                measurement: i < ingredients.count ? ingredients[i].measurement:""
-            )
+        var allIngredients: [Ingredient?] = []
+        for i in 0..<ingredients.count {
+            let local = Ingredient(ingredients[i].ingredientName, measurement: ingredients[i].measurement)
             allIngredients.append(local)
         }
         
-        let item = MealItem(id: id, name: name, category: category, area: area, instructions: instructions, mealThumbUrl: mealThumbUrl, tags: tags, youtubeUrl: youtubeUrl, sourceUrl: sourceUrl, ingredients: allIngredients)
+        let item = MealItem(id: id, name: name, category: category, area: area, instructions: instructions, mealThumbUrl: mealThumbUrl, tags: tags, youtubeUrl: youtubeUrl, sourceUrl: sourceUrl, ingredients: allIngredients.compactMap{$0})
         
         var json: [String: Any] = [
             "idMeal": id,
