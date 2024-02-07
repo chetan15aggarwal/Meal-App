@@ -13,8 +13,8 @@ extension MealItem {
             category: "Vegetarian",
             area: "Italian",
             instructions: "Bring a large pot of water to a boil.",
-            mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"), tags: ["Pasta","Curry"],
-            youtubeUrl: URL(string: "https://www.youtube.com/watch?v=1IszT_guI08"),
+            mealThumbUrl: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg".asURL, tags: ["Pasta","Curry"],
+            youtubeUrl: "https://www.youtube.com/watch?v=1IszT_guI08".asURL,
             ingredients: [Ingredient("penne rigate", measurement: "1 pound")!,Ingredient("olive oil", measurement: "1/4 cup")!]
         ), MealItem(
             id: "51771",
@@ -22,8 +22,8 @@ extension MealItem {
             category: "Vegetarian",
             area: "Italian",
             instructions: "Bring a large pot of water to a boil.",
-            mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"), tags: ["Pasta","Curry"],
-            youtubeUrl: URL(string: "https://www.youtube.com/watch?v=1IszT_guI08"),
+            mealThumbUrl: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg".asURL, tags: ["Pasta","Curry"],
+            youtubeUrl: "https://www.youtube.com/watch?v=1IszT_guI08".asURL,
             ingredients: [Ingredient("penne rigate", measurement: "1 pound")!,Ingredient("olive oil", measurement: "1/4 cup")!]
         )]
     }

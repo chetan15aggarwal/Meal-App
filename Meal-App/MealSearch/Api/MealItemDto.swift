@@ -58,7 +58,7 @@ struct MealItemDto: Decodable {
     var strMeasure19: String?
     var strMeasure20: String?
     
-    //ignored keys because of null response
+    //ignored keys with null response
     //strDrinkAlternate, strImageSource, strCreativeCommonsConfirmed, dateModified
 }
 

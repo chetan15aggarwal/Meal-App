@@ -32,7 +32,6 @@ struct MealSearchView: View {
     }
 }
 
-//TODO: - move the factory method in the DI section for the view model
 #Preview {
-    MealSearchView(viewModel: MealSearchViewModel(searchItemListLoader: RemoteSearchMealListLoader(url: MealAPI.Endpoint.getSearchAPI.url!, client: URLSessionHTTPClient(session: URLSession.shared))))
+    MealSearchView(viewModel: SearchMealModule().provideSearchMealViewModel())
 }

@@ -27,7 +27,6 @@ struct CardGroupBoxStyle: GroupBoxStyle {
 
 struct CardGroupBoxStyle_Previews: PreviewProvider {
     static var previews: some View {
-        
         GroupBox {
             Text("CardGroupBoxStyle")
         }
