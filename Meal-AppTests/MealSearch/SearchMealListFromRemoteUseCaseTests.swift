@@ -19,7 +19,8 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         
         sut.search(searchString: searchString, completion: { _ in })
         
-        XCTAssertEqual(client.requestedURLs, [url])
+        let expectedURL = url.appending(queryItems: [URLQueryItem(name: "s", value: searchString)])
+        XCTAssertEqual(client.requestedURLs, [expectedURL])
     }
     
     func test_searchTwice_requestsDataFromURLTwice () {
@@ -29,7 +30,8 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         sut.search(searchString: searchString) { _ in }
         sut.search(searchString: searchString) { _ in }
         
-        XCTAssertEqual(client.requestedURLs, [url, url])
+        let expectedURL = url.appending(queryItems: [URLQueryItem(name: "s", value: searchString)])
+        XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
     }
     
     func test_search_deliversErrorOnClientError() {

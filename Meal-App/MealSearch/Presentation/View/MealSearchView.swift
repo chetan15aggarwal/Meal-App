@@ -14,13 +14,20 @@ struct MealSearchView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(viewModel.mealList, id:\.self) { mealItem in
-                Text("Meal Id: \(mealItem.id)")
+        NavigationStack {
+            List(viewModel.mealList) { mealItem in
+                ZStack(alignment: .leading) {
+                    MealCardView(meal: mealItem)
+                    NavigationLink(destination: MealDetailView(meal: mealItem)) {
+                        EmptyView()
+                    }
+                    .opacity(0.0)
+                }
+                .listRowSeparator(.hidden, edges: .all)
             }
-        }
-        .task {
-            viewModel.searchMeal()
+            .listStyle(.plain)
+            .navigationTitle("Lets Eat a MEAL👨🏻‍🍳")
+            .searchable(text: $viewModel.searchText)
         }
     }
 }

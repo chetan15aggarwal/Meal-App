@@ -24,7 +24,8 @@ final class RemoteSearchMealListLoader: SearchMealListLoader {
     
     // MARK: - SearchMealListLoader
     func search(searchString: String, completion: @escaping (SearchMealListResult) -> Void) {
-        client.get(from: url) { [weak self] result in
+        let updatedUrl = url.appending(queryItems: [URLQueryItem(name: "s", value: searchString)])
+        client.get(from: updatedUrl) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success(data, response):

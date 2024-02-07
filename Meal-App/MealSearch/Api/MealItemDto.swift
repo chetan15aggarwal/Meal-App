@@ -12,7 +12,7 @@ struct MealItemDto: Decodable {
     var strArea: String
     var strInstructions: String
     var strMealThumb: String?
-    var strTags: String
+    var strTags: String?
     var strYoutube: String?
     var strSource: String?
 
@@ -96,7 +96,7 @@ extension Array where Element == MealItemDto {
                             area: $0.strArea,
                             instructions: $0.strInstructions,
                             mealThumbUrl: $0.strMealThumb?.asURL,
-                            tags: $0.strTags.components(separatedBy: ","),
+                            tags: $0.strTags?.components(separatedBy: ",") ?? [],
                             youtubeUrl: $0.strYoutube?.asURL,
                             sourceUrl: $0.strSource?.asURL,
                             ingredients: localIngredients.compactMap{$0}
