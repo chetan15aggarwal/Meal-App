@@ -34,5 +34,5 @@ struct MealSearchView: View {
 
 //TODO: - move the factory method in the DI section for the view model
 #Preview {
-    MealSearchView(viewModel: MealSearchViewModel(searchItemListLoader: RemoteSearchMealListLoader(url: URL(string: "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")!, client: URLSessionHTTPClient(session: URLSession.shared))))
+    MealSearchView(viewModel: MealSearchViewModel(searchItemListLoader: RemoteSearchMealListLoader(url: MealAPI.Endpoint.getSearchAPI.url!, client: URLSessionHTTPClient(session: URLSession.shared))))
 }
