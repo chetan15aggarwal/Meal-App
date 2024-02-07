@@ -3,9 +3,9 @@
 
 This is a demo iOS App to demonstrate the search functionality on a swiftUI listing by using [The Meal DB](https://www.themealdb.com/api.php) API
 
-![Homepage](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/94fb5783-d315-4979-b89a-0d30ea699188)
-![Search](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/3fe64a76-dc63-4e8c-9fa9-e86cb2193b2e)
-![DetailPage](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/91812a98-8faf-4555-83b7-1e1f82069bc5)
+![Homepage](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/913b414c-ee83-474a-8896-a683b0726abe)
+![Search](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/1aae0eb3-5e74-43ae-a06f-03f9d92fc370)
+![DetailPage](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/e68b7a64-0d9d-426f-a517-25b198a96914)
 
 ## Technical Stack
 
