@@ -6,7 +6,6 @@
 import Foundation
 
 final class RemoteSearchMealListLoader: SearchMealListLoader {
-    typealias Result = SearchMealListResult
     private static let SearchQueryParamKey = "s"
 
     enum Error: Swift.Error {
@@ -28,7 +27,7 @@ final class RemoteSearchMealListLoader: SearchMealListLoader {
         client.get(from: searchURLWith(searchString)) { [weak self] result in
             guard self != nil else { return }
             switch result {
-            case let .success(data, response):
+            case let .success((data, response)):
                 completion(RemoteSearchMealListLoader.map(data, response))
             case .failure:
                 completion(.failure(Error.connectivity))
@@ -40,7 +39,7 @@ final class RemoteSearchMealListLoader: SearchMealListLoader {
         return url.appending(queryItems: [URLQueryItem(name: RemoteSearchMealListLoader.SearchQueryParamKey, value: searchString)])
     }
     
-    private static func map(_ data: Data, _ response: HTTPURLResponse) -> Result {
+    private static func map(_ data: Data, _ response: HTTPURLResponse) -> SearchMealListResult {
         do {
             let items = try MealListItemMapper.map(data, response)
             return .success(items.toModels())

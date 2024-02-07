@@ -4,11 +4,7 @@
 
 
 import Foundation
-
-enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
+typealias HTTPClientResult = Result<(Data, HTTPURLResponse), Error>
 
 // MARK: - HTTPClient Protocol
 protocol HTTPClient {

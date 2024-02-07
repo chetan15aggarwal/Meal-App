@@ -99,7 +99,7 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
 
         var sut: RemoteSearchMealListLoader? = RemoteSearchMealListLoader(url: url, client: client)
         
-        var capturedResults = [RemoteSearchMealListLoader.Result]()
+        var capturedResults = [SearchMealListResult]()
         sut?.search(searchString: searchString ){ capturedResults.append($0) }
         sut = nil
         
@@ -123,7 +123,7 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
     }
     
     private func expect(_ searchString: String, sut: RemoteSearchMealListLoader,
-                        toCompleteWith expectedResult: RemoteSearchMealListLoader.Result,
+                        toCompleteWith expectedResult: SearchMealListResult,
                         file: StaticString = #filePath,
                         line: UInt = #line,
                         when action: () -> Void ) {
@@ -147,7 +147,7 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
     }
     
     
-    private func failure(_ error: RemoteSearchMealListLoader.Error) -> RemoteSearchMealListLoader.Result {
+    private func failure(_ error: RemoteSearchMealListLoader.Error) -> SearchMealListResult {
         return .failure(error)
     }
     
@@ -158,12 +158,8 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
     
     private func makeItem(id: String, name: String, category: String, area: String, instructions: String, mealThumbUrl: URL, tags: [String], youtubeUrl: URL, sourceUrl: URL, ingredients: [Ingredient]) -> (model: MealItem, json: [String: Any]) {
         
-        var allIngredients: [Ingredient?] = []
-        for i in 0..<ingredients.count {
-            let local = Ingredient(ingredients[i].ingredientName, measurement: ingredients[i].measurement)
-            allIngredients.append(local)
-        }
-        
+        let allIngredients = ingredients.map { Ingredient($0.ingredientName, measurement: $0.measurement) }
+
         let item = MealItem(id: id, name: name, category: category, area: area, instructions: instructions, mealThumbUrl: mealThumbUrl, tags: tags, youtubeUrl: youtubeUrl, sourceUrl: sourceUrl, ingredients: allIngredients.compactMap{$0})
         
         var json: [String: Any] = [
@@ -178,11 +174,14 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
             "strSource": sourceUrl.absoluteString,
         ]
         
-        for i in 0..<20 {
-            json["strIngredient\(i+1)"] = i < ingredients.count ? ingredients[i].ingredientName : ""
-            json["strMeasure\(i+1)"] = i < ingredients.count ? ingredients[i].measurement: ""
+        for (index, ingredient) in (0..<20).enumerated() {
+            let keyIngredient = "strIngredient\(index + 1)"
+            let keyMeasure = "strMeasure\(index + 1)"
+            
+            json[keyIngredient] = index < ingredients.count ? ingredients[index].ingredientName : ""
+            json[keyMeasure] = index < ingredients.count ? ingredients[index].measurement : ""
         }
-        
+
         return (item, json)
     }
     
@@ -208,7 +207,7 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
                 statusCode: code,
                 httpVersion: nil,
                 headerFields: nil)!
-            messages[index].completion(.success(data, response))
+            messages[index].completion(.success((data, response)))
         }
     }
 }

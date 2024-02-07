@@ -5,10 +5,7 @@
 
 import Foundation
 
-enum SearchMealListResult {
-    case success([MealItem])
-    case failure(Error)
-}
+typealias SearchMealListResult = Result<[MealItem], Error>
 
 // MARK: - SearchMealListLoader Protocol
 protocol SearchMealListLoader {
