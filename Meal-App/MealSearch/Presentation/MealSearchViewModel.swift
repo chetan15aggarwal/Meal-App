@@ -23,7 +23,8 @@ final class MealSearchViewModel:ObservableObject {
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] text in
-                self?.searchMeal(for: text)
+                guard let self = self else { return }
+                self.searchMeal(for: text)
             }
             .store(in: &cancellable)
     }

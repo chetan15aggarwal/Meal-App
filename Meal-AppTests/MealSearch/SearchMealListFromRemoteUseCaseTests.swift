@@ -78,12 +78,9 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
     func test_seach_diliverItemsOn200HTTPResponseWithJsonItems() {
         let (sut, client, searchString) = makeSUT()
         
-        let item1 = makeItem(id: "1111", name: "Kumpir", category: "Side", area: "Turkish", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient("Potatoes", measurement: "2 large"), Ingredient("Butter", measurement: "2 tbs")].compactMap{$0})
-        
-        let item2 = makeItem(id: "222", name: "Poutine", category: "Miscellaneous", area: "Canadian", instructions: "If you order kumpir in Turkey", mealThumbUrl: URL(string: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg")!, tags: ["SideDish"], youtubeUrl: URL(string: "https://www.youtube.com/watch?v=IEDEtZ4UVtI")!, sourceUrl: URL(string: "http://www.turkeysforlife.com/2013/10/firinda-kumpir-turkish-street-food.html")!, ingredients: [Ingredient("Vegetable Oil", measurement: "2 large"), Ingredient("Butter", measurement: "2 tbs")].compactMap{$0})
-        
+        let item1 = MockMealItems().getItem1()
+        let item2 = MockMealItems().getItem1()
         let items = ([item1.model, item2.model])
-
         
         expect(searchString, sut: sut, toCompleteWith: .success(items)) {
             let jsonData = makeItemJson([item1.json, item2.json])
@@ -156,58 +153,4 @@ final class SearchMealListFromRemoteUseCaseTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: itemJson, options: .prettyPrinted)
     }
     
-    private func makeItem(id: String, name: String, category: String, area: String, instructions: String, mealThumbUrl: URL, tags: [String], youtubeUrl: URL, sourceUrl: URL, ingredients: [Ingredient]) -> (model: MealItem, json: [String: Any]) {
-        
-        let allIngredients = ingredients.map { Ingredient($0.ingredientName, measurement: $0.measurement) }
-
-        let item = MealItem(id: id, name: name, category: category, area: area, instructions: instructions, mealThumbUrl: mealThumbUrl, tags: tags, youtubeUrl: youtubeUrl, sourceUrl: sourceUrl, ingredients: allIngredients.compactMap{$0})
-        
-        var json: [String: Any] = [
-            "idMeal": id,
-            "strMeal" : name,
-            "strCategory": category,
-            "strArea": area,
-            "strInstructions": instructions,
-            "strMealThumb": mealThumbUrl.absoluteString,
-            "strTags": tags.joined(separator: ","),
-            "strYoutube": youtubeUrl.absoluteString,
-            "strSource": sourceUrl.absoluteString,
-        ]
-        
-        for (index, ingredient) in (0..<20).enumerated() {
-            let keyIngredient = "strIngredient\(index + 1)"
-            let keyMeasure = "strMeasure\(index + 1)"
-            
-            json[keyIngredient] = index < ingredients.count ? ingredients[index].ingredientName : ""
-            json[keyMeasure] = index < ingredients.count ? ingredients[index].measurement : ""
-        }
-
-        return (item, json)
-    }
-    
-    // MARK: - HTTPClientSpy
-    private final class HTTPClientSpy: HTTPClient {
-        private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
-        
-        var requestedURLs: [URL] {
-            return messages.map { $0.url }
-        }
-        
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void ) {
-            messages.append((url, completion))
-        }
-        
-        func complete(with error: Error, index: Int = 0) {
-            messages[index].completion(.failure(error))
-        }
-        
-        func complete(withStatusCode code: Int, data: Data, index: Int = 0) {
-            let response = HTTPURLResponse(
-                url: requestedURLs[index],
-                statusCode: code,
-                httpVersion: nil,
-                headerFields: nil)!
-            messages[index].completion(.success((data, response)))
-        }
-    }
 }
