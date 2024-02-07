@@ -12,7 +12,7 @@ struct MealCardView: View {
     var body: some View {
         GroupBox {
             WebImage(url: meal.mealThumbUrl)
-                .placeholder(Image(Constans.meal_img_placeholder))
+                .placeholder(Image(Constants.meal_img_placeholder))
                 .resizable()
                 .scaledToFill()
                 .frame(height: 300)

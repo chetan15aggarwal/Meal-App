@@ -5,6 +5,6 @@
 
 import Foundation
 
-enum Constans {
+enum Constants {
     static let meal_img_placeholder = "meal-placeholder"
 }

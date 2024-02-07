@@ -12,7 +12,7 @@ struct MealDetailView: View {
     var body: some View {
         ScrollView {
             WebImage(url: meal.mealThumbUrl)
-                .placeholder(Image(Constans.meal_img_placeholder))
+                .placeholder(Image(Constants.meal_img_placeholder))
                 .resizable()
                 .scaledToFill()
                 .frame(height: 350)

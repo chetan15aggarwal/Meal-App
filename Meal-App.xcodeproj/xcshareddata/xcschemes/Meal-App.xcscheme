@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Meal-App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0E06852B2B71206F00CEAD88"
+               BuildableName = "Meal-AppUITests.xctest"
+               BlueprintName = "Meal-AppUITests"
+               ReferencedContainer = "container:Meal-App.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -44,25 +58,6 @@
                BlueprintName = "Meal-AppTests"
                ReferencedContainer = "container:Meal-App.xcodeproj">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E06852B2B71206F00CEAD88"
-               BuildableName = "Meal-AppUITests.xctest"
-               BlueprintName = "Meal-AppUITests"
-               ReferencedContainer = "container:Meal-App.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "Meal_AppUITests">
-               </Test>
-               <Test
-                  Identifier = "Meal_AppUITestsLaunchTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
