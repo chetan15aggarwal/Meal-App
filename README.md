@@ -27,6 +27,9 @@ This is a demo iOS App to demonstrate the search functionality on a swiftUI list
 
 ### Architecture:
 Clean Architecture with MVVM on Presentation layer. 
+
+### Flow chart of search:
+
 ![RecipeFlowDaigram drawio](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/c62dcae1-6fd8-43db-abb9-d8dc94995f5c)
 
 ## Functionality
@@ -47,5 +50,44 @@ Tech Specs:
 - Code Coverage enabled
 
 
+## Search Meal Feature Specs
 
+### Story: Customer requests to see their image feed
+
+### Narrative #1
+
+As an online customer
+I want the app to automatically load my latest meals
+So I can always enjoy the newest meals and I am able to search on it.
+
+
+#### Scenarios (Acceptance criteria)
+
+```
+Given the customer has connectivity
+ When the customer requests to see meals
+ Then the app should display the latest meals from remote
+```
+
+## Use Cases
+
+### Search Meals From Remote Use Case
+
+#### Data:
+- URL
+
+#### Primary course (happy path):
+1. Execute "Search Meal Item" command with above data.
+2. System downloads data from the URL.
+3. System validates downloaded data.
+4. System creates Meal List from valid data.
+5. System delivers Meal Item.
+
+#### Invalid data – error course (sad path):
+1. System delivers invalid data error.
+
+#### No connectivity – error course (sad path):
+1. System delivers connectivity error.
+
+---
 
