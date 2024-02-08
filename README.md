@@ -27,6 +27,7 @@ This is a demo iOS App to demonstrate the search functionality on a swiftUI list
 
 ### Architecture:
 Clean Architecture with MVVM on Presentation layer. 
+![RecipeFlowDaigram drawio](https://github.com/chetan15aggarwal/Meal-App/assets/20903001/c62dcae1-6fd8-43db-abb9-d8dc94995f5c)
 
 ## Functionality
 
